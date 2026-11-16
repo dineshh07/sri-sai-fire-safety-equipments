@@ -268,3 +268,14 @@ h2.in .w>span{transform:none}
 .av{position:relative;flex:none;width:64px;height:64px;border-radius:50%;overflow:hidden;background:var(--forest);color:var(--lime);display:grid;place-items:center;font-weight:800;font-size:20px;letter-spacing:-.02em}
 .av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .av.has{font-size:0}
+/* ===== mobile fixes ===== */
+html,body{overflow-x:clip}
+.nav{transform:none;left:0;right:0;margin:0 auto}
+.nav::before{content:"";position:absolute;inset:0;border-radius:999px;z-index:-1;transition:background .4s,box-shadow .4s}
+.nav.solid{background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.nav.solid::before{background:rgba(247,247,244,.78);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 0 0 1px rgba(0,0,0,.05),0 18px 40px -20px rgba(0,0,0,.2)}
+@media(max-width:900px){
+  .menu{height:100vh;height:100dvh;overflow-y:auto;justify-content:center;gap:6px;font-size:clamp(26px,8vw,36px);padding:90px 28px 40px}
+  .menu .btn{font-size:16px;margin-top:14px}
+  .menu>a:not(.btn)::after{display:none}
+  .burger[aria-expanded=true]{position:fixed;top:18px;right:20px}
